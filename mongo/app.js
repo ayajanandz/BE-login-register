@@ -25,6 +25,7 @@ app.post("/login", async(req, res) => {
 });
 
 app.post("/register", async(req,res) => {
+  console.log(res.data);
         await register(req, res);
 })
 
