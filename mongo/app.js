@@ -3,10 +3,14 @@ const { getData } = require("./book");
 const { addData } = require("./addData");
 const { login } = require("./login");
 const { register } = require('./register');
+const { like } = require('./like');
 
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const dotenv = require('dotenv');
+
+dotenv.config()
 
 mongoose.connection.on("connected", () => {
   console.log("Connected to MongoDB using MongooseJS");
@@ -15,7 +19,7 @@ mongoose.connection.on("connected", () => {
 const app = express();
 
 app.use(cors());
-const port = 8000;
+const port = process.env.PORT
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +31,11 @@ app.post("/login", async(req, res) => {
 app.post("/register", async(req,res) => {
   console.log(res.data);
         await register(req, res);
+})
+
+app.post("/like", async(req,res) => {
+  console.log(res.data);
+     await like(req,res); 
 })
 
 app.get("/test", async (req, res) => {

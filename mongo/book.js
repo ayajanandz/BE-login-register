@@ -3,7 +3,7 @@
 const {connectDB} = require('./connect.js');
 
 const getData = async (req) => {
-    console.log(req.query);
+    console.log("Request served for the category: " , req.query.category);
     //console.log("hey there frontend");
     let category = req.query.category;
     
