@@ -1,6 +1,9 @@
 'use strict';
+const dotenv = require('dotenv')
+dotenv.config()
 const { MongoClient } = require("mongodb");
-const uri = "mongodb+srv://da_anandz:mongosh.exe11@cluster0.rqfwfkr.mongodb.net/?retryWrites=true&w=majority"
+
+const uri = process.env.MONGO_URI;
 const databaseName ='testing1'
 const client = new MongoClient(uri);
 

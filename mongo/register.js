@@ -1,15 +1,8 @@
 'use strict';
 const mongoose = require("mongoose");
-// const { User } = require('./userSchema');
+
 const { connectDB } = require("./connect");
 
-// const userSchema = new mongoose.Schema({
-//     Name: String,
-//     Email: String,
-//     Password: String
-// })
-
-// const User = new mongoose.model("User", userSchema)
 
 
 const register = async (req, res) => {
@@ -28,24 +21,13 @@ const register = async (req, res) => {
     collection.insertOne({
       Name:name,
       Email:email,
-      password:password
+      Password:password
     })
     console.log("inserted new user details")
   } catch(err){
     console.log(err);
   }
-    // const user = new User({
-    //     name,
-    //     email,
-    //     password
-    // })
-    // user.save(function(err,result) {
-    //    if(err){
-    //     res.send(err);
-    //    }else {
-    //     res.send(result);
-    //    }
-    // })
+    
   }
 
 }
